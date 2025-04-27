@@ -1,76 +1,65 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Latihan PHP Pengulangan dan Warna Perkalian</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan</title>
     <style>
-
+        table {
+            border-collapse: collapse;
+        }
         th, td {
             border: 1px solid black;
-            width: 40px;
-            height: 40px;
-            text-align: center;
+            padding: 8px;
         }
-        .bilangan {
-            background-color: white;
-            color: black;
-        }
-        .header {
-            background-color: magenta;
-            color: white;
-        }
-        .kuning {
-            background-color: pink;
-        }
-        .biru {
-            background-color: cyan;
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
 
-<h2>1. Menampilkan Bilangan Genap 1 sampai 10</h2>
-<?php
-for ($i = 1; $i <= 10; $i++) {
-    if ($i % 2 == 0) {
-        echo $i . " ";
-    }
-}
-?>
-
-<h2>2. Tabel Perkalian 1 sampai 10</h2>
-<table border: 1px solid black>
-    <tr>
-        <th class="bilangan">Bilangan</th>
+    <h2>Kelipatan 3 dan 5</h2>
+    <ul>
         <?php
-        for ($i = 1; $i <= 10; $i++) {
-            echo "<th class='header'>$i</th>";
-        }
-        ?>
-    </tr>
-    <?php
-    for ($i = 1; $i <= 10; $i++) {
-        echo "<tr>";
-        echo "<th class='header'>$i</th>"; 
-
-        for ($j = 1; $j <= 10; $j++) {
-            $hasil = $i * $j;
-
-            if ($i % 2 == 0) {
-                echo "<td class='biru'>$hasil</td>";
-            } else {
-                if ($j % 2 == 1) {
-                    echo "<td class='kuning'>$hasil</td>";
-                } else {
-                    echo "<td class='biru'>$hasil</td>";
-                }
+        for ($i = 1; $i <= 100; $i++) {
+            if ($i % 3 == 0 && $i % 5 == 0) {
+                echo "<li>$i</li>";
             }
         }
+        ?>
+    </ul>
 
-        echo "</tr>";
-    }
-    ?>
-</table>
+    <h2>Daftar Nilai Mahasiswa</h2>
+    <table>
+        <tr>
+            <th>NO</th>
+            <th>NPM</th>
+            <th>NAMA MAHASISWA</th>
+            <th>NILAI</th>
+            <th>KETERANGAN</th>
+        </tr>
+        <?php
+        $mahasiswa = [
+            ['npm' => '001', 'nama' => 'Chayra', 'nilai' => 80],
+            ['npm' => '002', 'nama' => 'Archelia', 'nilai' => 75],
+            ['npm' => '003', 'nama' => 'Lalan', 'nilai' => 50],
+            ['npm' => '004', 'nama' => 'Fuji', 'nilai' => 90]
+        ];
+
+        $no = 1;
+        foreach ($mahasiswa as $mhs) {
+            echo "<tr>";
+            echo "<td>{$no}</td>";
+            echo "<td>{$mhs['npm']}</td>";
+            echo "<td>{$mhs['nama']}</td>";
+            echo "<td>{$mhs['nilai']}</td>";
+            echo "<td>" . ($mhs['nilai'] >= 60 ? "Lulus" : "Tidak Lulus") . "</td>";
+            echo "</tr>";
+            $no++;
+        }
+        ?>
+    </table>
 
 </body>
 </html>
