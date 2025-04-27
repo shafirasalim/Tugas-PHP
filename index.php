@@ -54,7 +54,7 @@
             echo "<td>{$mhs['npm']}</td>";
             echo "<td>{$mhs['nama']}</td>";
             echo "<td>{$mhs['nilai']}</td>";
-            echo "<td>" . ($mhs['nilai'] >= 60 ? "Lulus" : "Tidak Lulus") . "</td>";
+            echo "<td>" . ($mhs['nilai'] >= 60 ? " Lulus " : "Tidak Lulus") . "</td>";
             echo "</tr>";
             $no++;
         }
